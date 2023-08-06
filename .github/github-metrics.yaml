@@ -1,0 +1,24 @@
+name: Metrics
+run-name: Generating Github Metrics CLI theme
+
+on:
+  # Schedule daily updates
+  schedule: [{cron: "0 0 * * *"}]
+  # (optional) Run workflow manually
+  workflow_dispatch:
+  # (optional) Run workflow when pushing on master/main
+  push: main
+
+jobs:
+  github-metrics:
+    name: Github Metrics CLI theme
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Generate Github Metrics CLI theme
+        uses: lowlighter/metrics@latest
+        with:
+          token: ${{ secrets.METRICS_TOKEN }}
