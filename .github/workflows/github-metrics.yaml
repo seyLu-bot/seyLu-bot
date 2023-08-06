@@ -4,10 +4,10 @@ run-name: Generating Github Metrics CLI theme
 on:
   # Schedule daily updates
   schedule: [{cron: "0 0 * * *"}]
-  # (optional) Run workflow manually
-  workflow_dispatch:
-  # (optional) Run workflow when pushing on master/main
-  push: main
+  # (optional) Run workflow when pushing on main
+  push:
+    branches:
+      - main
 
 jobs:
   github-metrics:
